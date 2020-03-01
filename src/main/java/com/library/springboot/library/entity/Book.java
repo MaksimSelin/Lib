@@ -11,15 +11,19 @@ public class Book {
     private long id;
 
     @Column(name = "part_number")
-    private Long partNumber;
+    private String partNumber;
 
     private String author;
     private String title;
 
+    @ManyToOne(cascade ={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "reader_id")
+    Reader reader;
+
     public Book() {
     }
 
-    public Book(Long partNumber, String author, String title) {
+    public Book(String partNumber, String author, String title) {
         this.partNumber = partNumber;
         this.author = author;
         this.title = title;
@@ -33,11 +37,11 @@ public class Book {
         this.id = id;
     }
 
-    public Long getPartNumber() {
+    public String getPartNumber() {
         return partNumber;
     }
 
-    public void setPartNumber(Long partNumber) {
+    public void setPartNumber(String partNumber) {
         this.partNumber = partNumber;
     }
 
@@ -55,5 +59,13 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
     }
 }

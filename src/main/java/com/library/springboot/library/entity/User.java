@@ -1,6 +1,7 @@
 package com.library.springboot.library.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Users")
@@ -47,4 +48,5 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-}
+
+ }

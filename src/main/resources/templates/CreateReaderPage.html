@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+    <h1>Create reader page</h1>
+    <form action="#" th:action="@{/reader/save}" th:object="${reader}" method="post">
+        <input type="text" th:field="*{firstName}" placeholder="First name"><br><br>
+        <input type="text" th:field="*{lastName}" placeholder="Last name"><br><br>
+        <input type="text" th:field="*{surname}" placeholder="Surname"><br><br>
+        <select th:field="*{sex}">
+            <option th:value="true" th:text="Male"/>
+            <option th:value="false" th:text="Female"/>
+        </select>
+        <select th:field="*{maritalStatus}">
+            <option th:value="true" th:text="single"/>
+            <option th:value="false" th:text="married"/>
+        </select>
+        <input type="submit" value="save">
+        </form>
+</body>
+</html>

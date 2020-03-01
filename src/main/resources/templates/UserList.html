@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>first name</td>
+            <td>last name</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempUser : ${userList}">
+            <td th:text="${tempUser.getFirstName()}"/>
+            <td th:text="${tempUser.getLastName()}"/>
+            <td><a th:href="@{/user/userFormInfo(userId=${tempUser.getId()})}">info</a> </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

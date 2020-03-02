@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+</head>
+<body>
+    <h1>All readers</h1><hr>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>Surname</td>
+            <td>Sex</td>
+            <td>Marital status</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tmpReader : ${readerList}">
+            <td th:text="${tmpReader.getFirstName()}">
+            <td th:text="${tmpReader.getLastName()}"/>
+            <td th:text="${tmpReader.getSurname()}"/>
+            <td>
+                <span th:if="${tmpReader.isSex()}">Male</span>
+                <span th:unless="${tmpReader.isSex()}">Female</span>
+            </td>
+            <td>
+                <span th:if="${tmpReader.isMaritalStatus()}">Single</span>
+                <span th:unless="${tmpReader.isMaritalStatus()}">Married</span>
+            </td>
+            <td>
+                <a th:href="@{/reader/addBook(readerId=${tmpReader.getId()})}">add Book</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

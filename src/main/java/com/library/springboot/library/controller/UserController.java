@@ -26,6 +26,10 @@ public class UserController {
         return "CreateUserPage";
     }
 
-
+    @PostMapping("/save")
+    public String createUser(@ModelAttribute User tmpUser){
+        userRepo.save(tmpUser);
+        return "redirect:/";
+    }
 
 }
